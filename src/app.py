@@ -63,6 +63,8 @@ var8 = edad_dict[var8]
 if st.button("Realice Predicción"):
     prediction = str(model.predict([[var1, var2, var3, var4, var5, var6, var7, var8]])[0])
     pred_class = class_dict[prediction]
-    st.success("Resultado:")
+    st.success("Resultado para el modelo de regresión lineal:")
     st.write("Prediction:", pred_class)
     #
+    # la precision del resultado 
+    # resultados para otro 
