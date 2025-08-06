@@ -19,7 +19,7 @@ Esta función específica lee el flujo de bytes del objeto
    binario de lectura, "rb") y lo transforma de nuevo en 
    su forma original, un objeto Python. 
 """
-model = load(open("/workspaces/ml-streamlit/models/modelo.pkl", "rb"))
+model = load(open("/workspaces/ml-flask-streamlit/models/best_dt.pkl", "rb"))
 
 # hacer una lista con las categorias del target
 class_dict = {
