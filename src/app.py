@@ -1,3 +1,5 @@
+# importar librerias
+
 import streamlit as st
 from pickle import load
 import sklearn
@@ -5,15 +7,15 @@ import sklearn
 # Cargar el modelo
 model = load(open("../models/modelo.pkl", "rb"))
 
-# Clases
+# hacer una lista con las categorias del target
 class_dict = {
-    "0": "Es probable que no tengas Diabetes ",
-    "1": "Creo que si tienes Diabetes ( 0 _ 0 )"
+    "0": "Es probable que no tengas Diabetes :)",
+    "1": "Creo que si tienes Diabetes mandate a revisar :("
 }
 
 
 # Colocar las variables por el usuario
-st.title("¿Tienes Diabetes? Dame la siguiente información :)")
+st.title("¿Quisieras saber si tienes deabetes? Dame la siguiente información...")
 
 var1 = st.slider('Numero de Embarazos', min_value=0.0, max_value=15.0, step=1.0)
 
