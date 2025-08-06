@@ -6,10 +6,10 @@ import sklearn
 import pandas as pd
 
 
-st.title("Ejemplo 1")
+st.title("Conjuto de datos con el cual se entreno el modelo ")
 url = "https://raw.githubusercontent.com/4GeeksAcademy/decision-tree-project-tutorial/main/diabetes.csv"
 df = pd.read_csv(url)
-#st.dataframe(df)
+st.dataframe(df)
 
 
 # Cargar el modelo
@@ -30,43 +30,39 @@ class_dict = {
 
 # Colocar las variables por el usuario usando diferentes formas de input
 st.title("¿Quisieras saber si tienes Diabetes? ")
-st.subheader("Llena el siguiente formulario")
+st.subheader("Llena el siguiente formulario ")
 #var1 = st.slider('Numero de Embarazos', min_value=0.0, max_value=15.0, step=1.0)
-#var1 = st.number_input('Número de embarazos', min_value=0, max_value=15, step=1)
+var1 = st.number_input('Número de embarazos', min_value=0, max_value=15, step=1)
 
-var2 = st.slider('Glucosa dos horas despues de comer', min_value=0.0, max_value=300.0, step=0.1)
-#var2 = st.text_input('Glucosa dos horas después de comer (mg/dL)', value="120")
-#var2 = float(var2) if var2 else 0.0
+var2 = st.text_input('Glucosa dos horas después de comer (mg/dL)', value="120")
+var2 = float(var2) if var2 else 0.0
 
-var3 = st.slider('Presion arterial. *Es el numero de abajo*', min_value=0.0, max_value=150.0, step=0.1)
-#var3 = st.slider('Presión arterial diastólica (mm Hg)', 0.0, 150.0, 70.0, step=0.5)
+var3 = st.slider('Presión arterial diastólica (mm Hg)', 0.0, 150.0, 70.0, step=0.5)
 
-#var4 = st.slider('Grosor de la piel en el tricep. *Puedes inventarlo* (ㆆ _ ㆆ)', min_value=0.0, max_value=100.0, step=1.0)
-#var4 = st.number_input('Grosor del pliegue cutáneo en el tríceps (mm)', min_value=0.0, max_value=100.0, step=1.0)
+var4 = st.number_input('Grosor del pliegue cutáneo en el tríceps (mm)', min_value=0.0, max_value=100.0, step=1.0)
 
-#var5 = st.slider('Insulina serica', min_value=0.0, max_value=900.0, step=1.0)
-#var5 = st.text_input('Insulina sérica (mu U/ml)', value="80")
-#var5 = float(var5) if var5 else 0.0
+var5 = st.text_input('Insulina sérica (mu U/ml)', value="80")
+var5 = float(var5) if var5 else 0.0
 
-#var6 = st.slider('Indice de masa corporal [Peso(kg)/Estatura(m)**2]', min_value=0.0, max_value=80.0, step=0.1)
+var6 = st.slider('Indice de masa corporal [Peso(kg)/Estatura(m)**2]', min_value=0.0, max_value=80.0, step=0.1)
 
 
-#var7 = st.slider('¿Cuantos familiares con diabetes tienes?: 0-4 pon "0", 5-7 pon "0.5", 8 o más "1"', min_value=0.0, max_value=1.0, step=0.5)
+var7 = st.slider('¿Cuantos familiares con diabetes tienes?: 0-4 pon "0", 5-7 pon "0.5", 8 o más "1"', min_value=0.0, max_value=1.0, step=0.5)
 
 
-#var8 = st.slider('Cual es tu edad', min_value=21, max_value=90, step=1)
-#var8 = st.radio("¿En qué rango de edad estás?", options=["21-35", "36-50", "51-65", "66+"])
+var8 = st.radio("¿En qué rango de edad estás?", options=["21-35", "36-50", "51-65", "66+"])
 edad_dict = {
     "21-35": 30,
     "36-50": 45,
     "51-65": 58,
     "66+": 70
 }
-#var8 = edad_dict[var8]
+var8 = edad_dict[var8]
 
 # Cargar el modelo
-if st.button("Predicción"):
+if st.button("Realice Predicción"):
     prediction = str(model.predict([[var1, var2, var3, var4, var5, var6, var7, var8]])[0])
     pred_class = class_dict[prediction]
     st.success("Resultado:")
     st.write("Prediction:", pred_class)
+    #
