@@ -20,11 +20,12 @@ Esta función específica lee el flujo de bytes del objeto
    su forma original, un objeto Python. 
 """
 model = load(open("/workspaces/ml-flask-streamlit/models/best_dt.pkl", "rb"))
+accuracy = load(open("/workspaces/ml-flask-streamlit/models/accuracy.pkl", "rb"))
 
 # hacer una lista con las categorias del target
 class_dict = {
     "0": "Es probable que no tengas Diabetes :)",
-    "1": "Creo que si tienes Diabetes mandate a revisar :("
+    "1": "Probablemente tienes Diabetes, deberías ir al médico :("
 }
 
 
@@ -64,7 +65,9 @@ if st.button("Realice Predicción"):
     prediction = str(model.predict([[var1, var2, var3, var4, var5, var6, var7, var8]])[0])
     pred_class = class_dict[prediction]
     st.success("Resultado para el modelo de regresión lineal:")
-    st.write("Prediction:", pred_class)
+    st.write("Predicción:", pred_class)
+    st.write("Con una precisión del modelo de predicción del:", round(accuracy*100,2),"%")
+   
     #
     # la precision del resultado 
     # resultados para otro 
